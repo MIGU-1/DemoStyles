@@ -7,15 +7,47 @@
 
         <Style TargetType="TextBox">
             <Style.Triggers>
-            <EventTrigger RoutedEvent="MouseEnter">
-                <BeginStoryboard>
-                    <Storyboard>
-                            <ColorAnimation To="Azure" Storyboard.TargetProperty="BackgroundProperty"/>
-                        </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="Red" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="TextDecorations" Value="Underline" />
+                </Trigger>
             </Style.Triggers>
         </Style>
-        
+
+        <Style TargetType="CheckBox">
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="Green" />
+                    <Setter Property="Content" Value="JA!"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Background" Value="Red" />
+                    <Setter Property="Content" Value="NEIN!"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="3,3,3,3"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="28" Duration="0:0:0.3" Storyboard.TargetProperty="FontSize"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="18" Duration="0:0:0.3" Storyboard.TargetProperty="FontSize"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
     </Application.Resources>
 </Application>

@@ -10,18 +10,24 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">Text</TextBox>
-        <CheckBox Grid.Row="1" Grid.Column="1"></CheckBox>
-        <TextBlock Grid.Row="1" Grid.Column="1"></TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Hallo World"></TextBox>
+        
+        <CheckBox Grid.Row="1" Grid.Column="0" x:Name="backgroundCheckBox" Width="15" Height="15"></CheckBox>
+        
+        <TextBlock Grid.Column="1" Grid.Row="1"
+                 Background="{Binding ElementName=backgroundCheckBox, Path=Background}"
+                 Text="{Binding ElementName=backgroundCheckBox, Path=Content}"
+                 Margin="0,0,0,4" >
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">HALLO</TextBlock>
+        
     </Grid>
 </Window>
